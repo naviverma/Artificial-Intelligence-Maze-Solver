@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <title>Maze Solver</title>
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <h2>Assignment 1 Artificial Intelligence</h2>
+  <h1>Maze Solver</h1>
+  <div id="controls">
+    <label for="rows">Rows:</label>
+    <input type="number" id="rows" value="20" min="5">
+    <label for="cols">Cols:</label>
+    <input type="number" id="cols" value="20" min="5">
+    <label for="branching">Branching (0-1):</label>
+    <input type="number" id="branching" value="0.2" step="0.1" min="0" max="1">
+    <button id="generateMazeBtn">Generate Maze</button>
+    <select id="algorithm">
+      <option value="dfs">Depth-First Search</option>
+      <option value="bfs">Breadth-First Search</option>
+      <option value="astar">A* Search</option>
+    </select>
+    <button id="solveMazeBtn">Solve Maze</button>
+  </div>
+  <canvas id="mazeCanvas" width="500" height="500"></canvas>
+  <script src="script.js" type="module"></script>
+</body>
+</html>
