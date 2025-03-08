@@ -1,51 +1,129 @@
-<!DOCTYPE html>
-<html lang="en">
-<head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Maze Solver</title>
-  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
-  <link rel="stylesheet" href="styles.css">
-</head>
-<body>
-  <div class="container">
-    <h2>Artificial Intelligence</h2>
-    <h1>Maze Solver</h1>
-    
-    <div id="controls">
-      <div class="control-group">
-        <label for="rows">Rows</label>
-        <input type="number" id="rows" value="20" min="5">
-      </div>
-      
-      <div class="control-group">
-        <label for="cols">Columns</label>
-        <input type="number" id="cols" value="20" min="5">
-      </div>
-      
-      <div class="control-group">
-        <label for="branching">Branching (0-1)</label>
-        <input type="number" id="branching" value="0.2" step="0.1" min="0" max="1">
-      </div>
-      
-      <div class="control-group">
-        <label for="algorithm">Algorithm</label>
-        <select id="algorithm">
-          <option value="dfs">Depth-First Search</option>
-          <option value="bfs">Breadth-First Search</option>
-          <option value="astar">A* Search</option>
-        </select>
-      </div>
-      
-      <div class="button-group">
-        <button id="generateMazeBtn">Generate Maze</button>
-        <button id="solveMazeBtn">Solve Maze</button>
-      </div>
-    </div>
-    
-    <canvas id="mazeCanvas" width="500" height="500"></canvas>
-  </div>
+:root {
+  --primary: #6366f1;
+  --primary-dark: #4f46e5;
+  --bg-color: #f8fafc;
+  --card-bg: #ffffff;
+  --text-color: #1e293b;
+  --border-radius: 8px;
+  --shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
+}
+
+body {
+  font-family: 'Inter', system-ui, -apple-system, sans-serif;
+  background-color: var(--bg-color);
+  color: var(--text-color);
+  margin: 0;
+  padding: 20px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  min-height: 100vh;
+}
+
+h1, h2 {
+  margin: 0;
+}
+
+h2 {
+  color: var(--primary);
+  font-weight: 500;
+  font-size: 1rem;
+  letter-spacing: 0.05em;
+  text-transform: uppercase;
+  margin-bottom: 4px;
+}
+
+h1 {
+  font-size: 2.2rem;
+  margin-bottom: 24px;
+}
+
+.container {
+  width: 100%;
+  max-width: 800px;
+  padding: 32px;
+  background-color: var(--card-bg);
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+#controls {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(140px, 1fr));
+  gap: 16px;
+  margin-bottom: 24px;
+}
+
+.control-group {
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+  gap: 8px;
+}
+
+label {
+  font-size: 0.9rem;
+  font-weight: 500;
+}
+
+input, select, button {
+  width: 100%;
+  padding: 10px 12px;
+  border-radius: var(--border-radius);
+  border: 1px solid #e2e8f0;
+  background-color: white;
+  font-family: inherit;
+  font-size: 0.95rem;
+  transition: all 0.2s ease;
+}
+
+input:focus, select:focus {
+  outline: none;
+  border-color: var(--primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.2);
+}
+
+button {
+  background-color: var(--primary);
+  color: white;
+  font-weight: 500;
+  border: none;
+  cursor: pointer;
+}
+
+button:hover {
+  background-color: var(--primary-dark);
+}
+
+#algorithm {
+  cursor: pointer;
+}
+
+canvas {
+  width: 100%;
+  max-width: 550px;
+  height: auto;
+  aspect-ratio: 1/1;
+  border-radius: var(--border-radius);
+  box-shadow: var(--shadow);
+}
+
+.button-group {
+  grid-column: span 2;
+  display: flex;
+  gap: 12px;
+}
+
+@media (max-width: 640px) {
+  .container {
+    padding: 24px 16px;
+  }
   
-  <script src="script.js" type="module"></script>
-</body>
-</html>
+  #controls {
+    grid-template-columns: 1fr;
+  }
+  
+  .button-group {
+    grid-column: span 1;
+  }
+}
