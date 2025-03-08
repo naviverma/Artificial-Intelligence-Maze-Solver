@@ -2,28 +2,50 @@
 <html lang="en">
 <head>
   <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Maze Solver</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
   <link rel="stylesheet" href="styles.css">
 </head>
 <body>
-  <h2>Artificial Intelligence</h2>
-  <h1>Maze Solver</h1>
-  <div id="controls">
-    <label for="rows">Rows:</label>
-    <input type="number" id="rows" value="20" min="5">
-    <label for="cols">Cols:</label>
-    <input type="number" id="cols" value="20" min="5">
-    <label for="branching">Branching (0-1):</label>
-    <input type="number" id="branching" value="0.2" step="0.1" min="0" max="1">
-    <button id="generateMazeBtn">Generate Maze</button>
-    <select id="algorithm">
-      <option value="dfs">Depth-First Search</option>
-      <option value="bfs">Breadth-First Search</option>
-      <option value="astar">A* Search</option>
-    </select>
-    <button id="solveMazeBtn">Solve Maze</button>
+  <div class="container">
+    <h2>Artificial Intelligence</h2>
+    <h1>Maze Solver</h1>
+    
+    <div id="controls">
+      <div class="control-group">
+        <label for="rows">Rows</label>
+        <input type="number" id="rows" value="20" min="5">
+      </div>
+      
+      <div class="control-group">
+        <label for="cols">Columns</label>
+        <input type="number" id="cols" value="20" min="5">
+      </div>
+      
+      <div class="control-group">
+        <label for="branching">Branching (0-1)</label>
+        <input type="number" id="branching" value="0.2" step="0.1" min="0" max="1">
+      </div>
+      
+      <div class="control-group">
+        <label for="algorithm">Algorithm</label>
+        <select id="algorithm">
+          <option value="dfs">Depth-First Search</option>
+          <option value="bfs">Breadth-First Search</option>
+          <option value="astar">A* Search</option>
+        </select>
+      </div>
+      
+      <div class="button-group">
+        <button id="generateMazeBtn">Generate Maze</button>
+        <button id="solveMazeBtn">Solve Maze</button>
+      </div>
+    </div>
+    
+    <canvas id="mazeCanvas" width="500" height="500"></canvas>
   </div>
-  <canvas id="mazeCanvas" width="500" height="500"></canvas>
+  
   <script src="script.js" type="module"></script>
 </body>
 </html>
