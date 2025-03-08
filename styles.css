@@ -1,16 +1,51 @@
-body {
-    font-family: sans-serif;
-    text-align: center;
-    background-color: #f5f5f5;
-    margin: 0;
-    padding: 20px;
-  }
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Maze Solver</title>
+  <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600&display=swap">
+  <link rel="stylesheet" href="styles.css">
+</head>
+<body>
+  <div class="container">
+    <h2>Artificial Intelligence</h2>
+    <h1>Maze Solver</h1>
+    
+    <div id="controls">
+      <div class="control-group">
+        <label for="rows">Rows</label>
+        <input type="number" id="rows" value="20" min="5">
+      </div>
+      
+      <div class="control-group">
+        <label for="cols">Columns</label>
+        <input type="number" id="cols" value="20" min="5">
+      </div>
+      
+      <div class="control-group">
+        <label for="branching">Branching (0-1)</label>
+        <input type="number" id="branching" value="0.2" step="0.1" min="0" max="1">
+      </div>
+      
+      <div class="control-group">
+        <label for="algorithm">Algorithm</label>
+        <select id="algorithm">
+          <option value="dfs">Depth-First Search</option>
+          <option value="bfs">Breadth-First Search</option>
+          <option value="astar">A* Search</option>
+        </select>
+      </div>
+      
+      <div class="button-group">
+        <button id="generateMazeBtn">Generate Maze</button>
+        <button id="solveMazeBtn">Solve Maze</button>
+      </div>
+    </div>
+    
+    <canvas id="mazeCanvas" width="500" height="500"></canvas>
+  </div>
   
-  #controls {
-    margin-bottom: 15px;
-  }
-  
-  canvas {
-    border: 1px solid #333;
-    background-color: white;
-  }
+  <script src="script.js" type="module"></script>
+</body>
+</html>
